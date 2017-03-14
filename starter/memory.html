@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Memory Game (4x4)</title>
+    <style>
+
+       #container {
+        width: 700px;
+        margin: 0 auto;
+      }
+
+      .card {
+        display: inline-block;
+        width: 165px;
+        height: 200px;
+
+        transform-style: preserve-3d;
+
+        transition: transform 1s;  /* animate rotate 180deg, that is, transform transitations */
+
+        /* perspective: 800px; -- use why? why not? */
+     }
+
+     .card-back,
+     .card-front {
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+     }
+
+     .card-front {
+        transform: rotateY( 180deg );
+     }
+
+     .card-back {
+        background: url('i/back.png') no-repeat;
+      }
+
+      .card-8-ball {
+        background: url('i/8-ball.png') no-repeat;
+      }
+      .card-baked-potato {
+        background: url('i/baked-potato.png') no-repeat;
+      }
+      .card-dinosaur {
+        background: url('i/dinosaur.png') no-repeat;
+      }
+      .card-kronos {
+        background: url('i/kronos.png') no-repeat;
+      }
+      .card-rocket {
+        background: url('i/rocket.png') no-repeat;
+      }
+      .card-skinny-unicorn {
+        background: url('i/skinny-unicorn.png') no-repeat;
+      }
+      .card-that-guy {
+        background: url('i/that-guy.png') no-repeat;
+      }
+      .card-zeppelin {
+        background: url('i/zeppelin.png') no-repeat;
+      }
+
+
+     .card.flipped {
+        transform: rotateY( 180deg );
+     }
+
+    </style>
+    <script>
+        // toggle flipped class on element
+      function flip(el) {
+        el.classList.toggle('flipped');
+      }
+    </script>
+  </head>
+  <body>
+
+    <div id="container">
+
+      <h1>Memory Game (4x4)</h1>
+
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-8-ball"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-baked-potato"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-dinosaur"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-kronos"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-rocket"></div>
+      </div>
+      <div class="card flipped" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-8-ball"></div>
+      </div>
+      <div class="card flipped" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-skinny-unicorn"></div>
+      </div>
+      <div class="card flipped" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-rocket"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-that-guy"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-dinosaur"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-kronos"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-skinny-unicorn"></div>
+      </div>
+      <div class="card flipped" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-zeppelin"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-zeppelin"></div>
+      </div>
+      <div class="card flipped" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-baked-potato"></div>
+      </div>
+      <div class="card" onclick="flip(this)">
+        <div class="card-back"></div>
+        <div class="card-front card-that-guy"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
