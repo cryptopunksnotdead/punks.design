@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charSet="utf-8">
+    <title>elm memory game</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- todo: move h1 into elm code -->
+    <h1>Memory Game (4x4)</h1>
+
+    <div id="main"></div>
+
+    <script src="build/starter.js"></script>
+    <script>
+      // add bundled Elm app into div#main
+      Elm.Main.embed( document.getElementById( 'main' ) );
+    </script>
+  </body>
+</html>
