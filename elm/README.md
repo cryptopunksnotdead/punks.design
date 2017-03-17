@@ -10,7 +10,3 @@ html • css • elm
 To build use:
 
     $ elm-make Starter.elm --output=build/starter.js
-
-
-
-## Docs
