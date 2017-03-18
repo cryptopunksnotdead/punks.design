@@ -1,4 +1,6 @@
 
 html • css • js
 
-# Starter Memory Game (4x4) Sample
+# Starter Memory Card Game (4x4) "Vanilla" JavaScript Sample
+
+- [Starter Sample](http://memoryhtml.github.io/memory/starter)
