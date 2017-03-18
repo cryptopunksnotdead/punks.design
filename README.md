@@ -1,9 +1,9 @@
 
 JavaScript 5 • JavaScript 6+ • React • Elm • ReasonML • More
 
-# Memory Game (4x4) Showcase / Samples
+# Memory Card Game Showcase / Samples
 
 
-</> [**Starter Memory Sample**](http://geraldb.github.io/memory/starter)  #html #css #js
+</> [**Starter Memory Sample**](http://memoryhtml.github.io/memory/starter)  #html #css #js
 
-</> [**Elm Memory Sample**](http://geraldb.github.io/memory/elm)  #html #css #elm
+</> [**Elm Memory Sample**](http://memoryhtml.github.io/memory/elm)  #html #css #elm
