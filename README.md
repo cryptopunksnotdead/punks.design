@@ -6,7 +6,7 @@
 
 </> [**Starter Memory Sample**](http://memoryhtml.github.io/memory/starter)  #html #css #js
 
-</> [**Elm Memory Sample**](http://memoryhtml.github.io/memory/elm/starter.html)  #html #css #elm
+</> [**Elm Memory Sample**](http://memoryhtml.github.io/memory/elm)  #html #css #elm
 
 
 ## License

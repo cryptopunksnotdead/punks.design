@@ -2,7 +2,8 @@ html • css • elm
 
 # Memory Card Game (4x4) - Elm Samples
 
-- [Starter Sample](http://memoryhtml.github.io/memory/elm/starter.html)
+- [Sample](http://memoryhtml.github.io/memory/elm) - memory card game sample
+- [Starter Sample](http://memoryhtml.github.io/memory/elm/starter.html) - flip cards starter sample; no pairs matched
 
 
 
@@ -12,7 +13,9 @@ html • css • elm
 
 To build use:
 
-    $ elm-make Starter.elm --output=build/starter.js
+    $ elm-make src/Starter.elm --output=build/starter.js
+    $ elm-make src/Main.elm --output=build/main.js
+
 
 ### Links / References
 

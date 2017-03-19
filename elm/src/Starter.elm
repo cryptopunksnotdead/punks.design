@@ -42,7 +42,7 @@ type Msg
 
 -- MODEL
 
-createDeck : List Card
+createDeck : Deck
 createDeck = [
      (Card 1 A True),
      (Card 3 A False),
