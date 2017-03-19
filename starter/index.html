@@ -5,19 +5,25 @@
     <title>Memory Card Game (4x4)</title>
     <style>
 
+      body {
+        font-family: "Helvetica", sans-serif;
+      }
+
        #container {
         width: 700px;
-        margin: 0 auto;
+        margin: 0 auto;    /* center container on page */
       }
 
       .card {
         display: inline-block;
-        width: 165px;
-        height: 200px;
+        width: 160px;
+        height: 160px;
+        margin: 4px;
 
         transform-style: preserve-3d;
 
-        transition: transform 1s;  /* animate rotate 180deg, that is, transform transitations */
+         /* animate rotate 180deg, that is, transform transitations */
+        transition: transform 1s;
 
         /* perspective: 800px; -- use why? why not? */
      }
@@ -28,42 +34,29 @@
         position: absolute;
         height: 100%;
         width: 100%;
+        /* note: incl. margin+border in 100% calc - default is content-box */
+        box-sizing: border-box;
         backface-visibility: hidden;
+
+        border: 2px solid black;
+        border-radius: 10px;
+
+        padding-top: 20px;
+        text-align: center;
+        font-size: 84px;
      }
 
      .card-front {
         transform: rotateY( 180deg );
      }
 
+     .card-front .hint {
+       font-size: 20px;
+     }
+
      .card-back {
-        background: url('i/back.png') no-repeat;
+       background-image: linear-gradient(silver,grey);
       }
-
-      .card-8-ball {
-        background: url('i/8-ball.png') no-repeat;
-      }
-      .card-baked-potato {
-        background: url('i/baked-potato.png') no-repeat;
-      }
-      .card-dinosaur {
-        background: url('i/dinosaur.png') no-repeat;
-      }
-      .card-kronos {
-        background: url('i/kronos.png') no-repeat;
-      }
-      .card-rocket {
-        background: url('i/rocket.png') no-repeat;
-      }
-      .card-skinny-unicorn {
-        background: url('i/skinny-unicorn.png') no-repeat;
-      }
-      .card-that-guy {
-        background: url('i/that-guy.png') no-repeat;
-      }
-      .card-zeppelin {
-        background: url('i/zeppelin.png') no-repeat;
-      }
-
 
      .card.flipped {
         transform: rotateY( 180deg );
@@ -84,68 +77,123 @@
       <h1>Memory Card Game (4x4) - “Vanilla” JavaScript Starter Sample</h1>
 
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-8-ball"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+           1×1
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-baked-potato"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+           5×5
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-dinosaur"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+           3×3
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-kronos"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+           <div>9</div>
+           <div class="hint">3×3</div>
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-rocket"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+            <div>4</div>
+            <div class="hint">2×2</div>
+        </div>
       </div>
+
       <div class="card flipped" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-8-ball"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+           8×8
+        </div>
       </div>
+
       <div class="card flipped" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-skinny-unicorn"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+           2×2
+        </div>
       </div>
+
       <div class="card flipped" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-rocket"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+           <div>1</div>
+           <div class="hint">1×1</div>
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-that-guy"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+          <div>36</div>
+          <div class="hint">6×6</div>
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-dinosaur"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+           <div>56</div>
+           <div class="hint">8×8</div>
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-kronos"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+           <div>25</div>
+           <div class="hint">5×5</div>
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-skinny-unicorn"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+            4×4
+        </div>
       </div>
+
       <div class="card flipped" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-zeppelin"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+            <div>49</div>
+            <div class="hint">7×7</div>
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-zeppelin"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+           7×7
+        </div>
       </div>
+
       <div class="card flipped" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-baked-potato"></div>
+        <div class="card-back">=</div>
+        <div class="card-front">
+            <div>16</div>
+            <div class="hint">4×4</div>
+        </div>
       </div>
+
       <div class="card" onclick="flip(this)">
-        <div class="card-back"></div>
-        <div class="card-front card-that-guy"></div>
+        <div class="card-back">?</div>
+        <div class="card-front">
+            6×6
+        </div>
       </div>
     </div>
 
