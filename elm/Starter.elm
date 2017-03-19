@@ -23,15 +23,12 @@ type alias Card =
     , flipped : Bool
     }
 
+type alias Deck =
+    List Card
 
 type Group
     = A
     | B
-
-
-type alias Deck =
-    List Card
-
 
 type Model
     = Playing Deck
@@ -73,16 +70,11 @@ createModel =
 
 -- UPDATE
 
--- toggle bool value  - check if there's a builtin function or operator???
-toggle : Bool -> Bool
-toggle v =
-   if v == True then False else True
-
 
 flip : Card -> Card -> Card
 flip a b =
     if (a.id == b.id) && (a.group == b.group) then
-        { b | flipped = toggle b.flipped }
+        { b | flipped = not b.flipped }
     else
         b
 
@@ -108,8 +100,8 @@ update msg model =
 
 -- VIEW
 
-createCard : Card -> Html Msg
-createCard card =
+viewCard : Card -> Html Msg
+viewCard card =
     div [ classList [ ( "card", True ), ( "flipped", card.flipped ) ], onClick (Flip card) ]
           [ div [ class "card-back" ] []
           , div [ class ("card-front " ++ "card-" ++ card.id) ] []
@@ -123,4 +115,7 @@ view : Model -> Html Msg
 view model =
     case model of
         Playing deck ->
-            div [ id "container" ] (List.map createCard deck)
+            div [ id "container" ]
+              (h1 [][text "Memory Card Game (4x4) - Elm Starter Sample"]
+               :: List.map viewCard deck
+              )

@@ -8260,16 +8260,11 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
-var _user$project$Main$toggle = function (v) {
-	return _elm_lang$core$Native_Utils.eq(v, true) ? false : true;
-};
 var _user$project$Main$flip = F2(
 	function (a, b) {
 		return (_elm_lang$core$Native_Utils.eq(a.id, b.id) && _elm_lang$core$Native_Utils.eq(a.group, b.group)) ? _elm_lang$core$Native_Utils.update(
 			b,
-			{
-				flipped: _user$project$Main$toggle(b.flipped)
-			}) : b;
+			{flipped: !b.flipped}) : b;
 	});
 var _user$project$Main$Card = F3(
 	function (a, b, c) {
@@ -8373,7 +8368,7 @@ var _user$project$Main$update = F2(
 var _user$project$Main$Flip = function (a) {
 	return {ctor: 'Flip', _0: a};
 };
-var _user$project$Main$createCard = function (card) {
+var _user$project$Main$viewCard = function (card) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -8432,7 +8427,18 @@ var _user$project$Main$view = function (model) {
 			_0: _elm_lang$html$Html_Attributes$id('container'),
 			_1: {ctor: '[]'}
 		},
-		A2(_elm_lang$core$List$map, _user$project$Main$createCard, _p2._0));
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Memory Card Game (4x4) - Elm Starter Sample'),
+					_1: {ctor: '[]'}
+				}),
+			_1: A2(_elm_lang$core$List$map, _user$project$Main$viewCard, _p2._0)
+		});
 };
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{
