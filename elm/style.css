@@ -1,64 +1,57 @@
 
-       #container {
-        width: 700px;
-        margin: 0 auto;
-      }
+body {
+  font-family: "Helvetica", sans-serif;
+}
 
-      .card {
-        display: inline-block;
-        width: 165px;
-        height: 200px;
+ #container {
+  width: 700px;
+  margin: 0 auto;    /* center container on page */
+}
 
-        transform-style: preserve-3d;
+.card {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  margin: 4px;
 
-        transition: transform 1s;  /* animate rotate 180deg, that is, transform transitations */
+  transform-style: preserve-3d;
 
-        /* perspective: 800px; -- use why? why not? */
-     }
+   /* animate rotate 180deg, that is, transform transitations */
+  transition: transform 1s;
 
-     .card-back,
-     .card-front {
-        display: block;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        backface-visibility: hidden;
-     }
+  /* perspective: 800px; -- use why? why not? */
+}
 
-     .card-front {
-        transform: rotateY( 180deg );
-     }
+.card-back,
+.card-front {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* note: incl. margin+border in 100% calc - default is content-box */
+  box-sizing: border-box;
+  backface-visibility: hidden;
 
-     .card-back {
-        background: url('i/back.png') no-repeat;
-      }
+  border: 2px solid black;
+  border-radius: 10px;
 
-      .card-8-ball {
-        background: url('i/8-ball.png') no-repeat;
-      }
-      .card-baked-potato {
-        background: url('i/baked-potato.png') no-repeat;
-      }
-      .card-dinosaur {
-        background: url('i/dinosaur.png') no-repeat;
-      }
-      .card-kronos {
-        background: url('i/kronos.png') no-repeat;
-      }
-      .card-rocket {
-        background: url('i/rocket.png') no-repeat;
-      }
-      .card-skinny-unicorn {
-        background: url('i/skinny-unicorn.png') no-repeat;
-      }
-      .card-that-guy {
-        background: url('i/that-guy.png') no-repeat;
-      }
-      .card-zeppelin {
-        background: url('i/zeppelin.png') no-repeat;
-      }
+  padding-top: 20px;
+  text-align: center;
+  font-size: 84px;
+}
 
+.card-front {
+  transform: rotateY( 180deg );
+}
 
-     .card.flipped {
-        transform: rotateY( 180deg );
-     }
+.card-front .hint {
+ font-size: 20px;
+}
+
+.card-back {
+ background-image: linear-gradient(silver,grey);
+}
+
+.card.flipped {
+  transform: rotateY( 180deg );
+}

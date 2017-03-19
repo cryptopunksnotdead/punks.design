@@ -8260,6 +8260,110 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
+var _user$project$Main$cardFrontTextB = function (card) {
+	var _p0 = card.id;
+	switch (_p0) {
+		case 1:
+			return '1';
+		case 2:
+			return '4';
+		case 3:
+			return '9';
+		case 4:
+			return '16';
+		case 5:
+			return '25';
+		case 6:
+			return '36';
+		case 7:
+			return '49';
+		case 8:
+			return '56';
+		default:
+			return '!!';
+	}
+};
+var _user$project$Main$cardFrontTextA = function (card) {
+	var _p1 = card.id;
+	switch (_p1) {
+		case 1:
+			return '1×1';
+		case 2:
+			return '2×2';
+		case 3:
+			return '3×3';
+		case 4:
+			return '4×4';
+		case 5:
+			return '5×5';
+		case 6:
+			return '6x6';
+		case 7:
+			return '7x7';
+		case 8:
+			return '8x8';
+		default:
+			return '!!';
+	}
+};
+var _user$project$Main$viewCardFront = function (card) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('card-front'),
+			_1: {ctor: '[]'}
+		},
+		function () {
+			var _p2 = card.group;
+			if (_p2.ctor === 'A') {
+				return {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						_user$project$Main$cardFrontTextA(card)),
+					_1: {ctor: '[]'}
+				};
+			} else {
+				return {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(
+								_user$project$Main$cardFrontTextB(card)),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('hint'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(
+									_user$project$Main$cardFrontTextA(card)),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				};
+			}
+		}());
+};
+var _user$project$Main$cardBackText = function (card) {
+	var _p3 = card.group;
+	if (_p3.ctor === 'A') {
+		return '?';
+	} else {
+		return '=';
+	}
+};
 var _user$project$Main$flip = F2(
 	function (a, b) {
 		return (_elm_lang$core$Native_Utils.eq(a.id, b.id) && _elm_lang$core$Native_Utils.eq(a.group, b.group)) ? _elm_lang$core$Native_Utils.update(
@@ -8274,52 +8378,52 @@ var _user$project$Main$B = {ctor: 'B'};
 var _user$project$Main$A = {ctor: 'A'};
 var _user$project$Main$createDeck = {
 	ctor: '::',
-	_0: A3(_user$project$Main$Card, 'dinosaur', _user$project$Main$A, false),
+	_0: A3(_user$project$Main$Card, 1, _user$project$Main$A, true),
 	_1: {
 		ctor: '::',
-		_0: A3(_user$project$Main$Card, '8-ball', _user$project$Main$A, true),
+		_0: A3(_user$project$Main$Card, 3, _user$project$Main$A, false),
 		_1: {
 			ctor: '::',
-			_0: A3(_user$project$Main$Card, 'baked-potato', _user$project$Main$A, false),
+			_0: A3(_user$project$Main$Card, 5, _user$project$Main$B, false),
 			_1: {
 				ctor: '::',
-				_0: A3(_user$project$Main$Card, 'kronos', _user$project$Main$A, false),
+				_0: A3(_user$project$Main$Card, 6, _user$project$Main$A, false),
 				_1: {
 					ctor: '::',
-					_0: A3(_user$project$Main$Card, 'rocket', _user$project$Main$A, false),
+					_0: A3(_user$project$Main$Card, 6, _user$project$Main$B, true),
 					_1: {
 						ctor: '::',
-						_0: A3(_user$project$Main$Card, 'skinny-unicorn', _user$project$Main$A, false),
+						_0: A3(_user$project$Main$Card, 5, _user$project$Main$A, true),
 						_1: {
 							ctor: '::',
-							_0: A3(_user$project$Main$Card, 'baked-potato', _user$project$Main$B, false),
+							_0: A3(_user$project$Main$Card, 8, _user$project$Main$B, false),
 							_1: {
 								ctor: '::',
-								_0: A3(_user$project$Main$Card, 'that-guy', _user$project$Main$A, true),
+								_0: A3(_user$project$Main$Card, 7, _user$project$Main$A, false),
 								_1: {
 									ctor: '::',
-									_0: A3(_user$project$Main$Card, 'rocket', _user$project$Main$B, false),
+									_0: A3(_user$project$Main$Card, 8, _user$project$Main$A, false),
 									_1: {
 										ctor: '::',
-										_0: A3(_user$project$Main$Card, 'zeppelin', _user$project$Main$A, false),
+										_0: A3(_user$project$Main$Card, 4, _user$project$Main$A, false),
 										_1: {
 											ctor: '::',
-											_0: A3(_user$project$Main$Card, 'kronos', _user$project$Main$B, true),
+											_0: A3(_user$project$Main$Card, 2, _user$project$Main$B, false),
 											_1: {
 												ctor: '::',
-												_0: A3(_user$project$Main$Card, 'dinosaur', _user$project$Main$B, false),
+												_0: A3(_user$project$Main$Card, 3, _user$project$Main$B, true),
 												_1: {
 													ctor: '::',
-													_0: A3(_user$project$Main$Card, 'that-guy', _user$project$Main$B, false),
+													_0: A3(_user$project$Main$Card, 2, _user$project$Main$A, false),
 													_1: {
 														ctor: '::',
-														_0: A3(_user$project$Main$Card, 'zeppelin', _user$project$Main$B, false),
+														_0: A3(_user$project$Main$Card, 1, _user$project$Main$B, false),
 														_1: {
 															ctor: '::',
-															_0: A3(_user$project$Main$Card, '8-ball', _user$project$Main$B, true),
+															_0: A3(_user$project$Main$Card, 4, _user$project$Main$B, false),
 															_1: {
 																ctor: '::',
-																_0: A3(_user$project$Main$Card, 'skinny-unicorn', _user$project$Main$B, false),
+																_0: A3(_user$project$Main$Card, 7, _user$project$Main$B, false),
 																_1: {ctor: '[]'}
 															}
 														}
@@ -8347,18 +8451,18 @@ var _user$project$Main$createModel = {
 };
 var _user$project$Main$update = F2(
 	function (msg, model) {
-		var _p0 = msg;
-		if (_p0.ctor === 'NoOp') {
+		var _p4 = msg;
+		if (_p4.ctor === 'NoOp') {
 			return A2(
 				_elm_lang$core$Platform_Cmd_ops['!'],
 				model,
 				{ctor: '[]'});
 		} else {
-			var _p1 = model;
+			var _p5 = model;
 			var newDeck = A2(
 				_elm_lang$core$List$map,
-				_user$project$Main$flip(_p0._0),
-				_p1._0);
+				_user$project$Main$flip(_p4._0),
+				_p5._0);
 			return A2(
 				_elm_lang$core$Platform_Cmd_ops['!'],
 				_user$project$Main$Playing(newDeck),
@@ -8399,27 +8503,21 @@ var _user$project$Main$viewCard = function (card) {
 					_0: _elm_lang$html$Html_Attributes$class('card-back'),
 					_1: {ctor: '[]'}
 				},
-				{ctor: '[]'}),
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						_user$project$Main$cardBackText(card)),
+					_1: {ctor: '[]'}
+				}),
 			_1: {
 				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class(
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								'card-front ',
-								A2(_elm_lang$core$Basics_ops['++'], 'card-', card.id))),
-						_1: {ctor: '[]'}
-					},
-					{ctor: '[]'}),
+				_0: _user$project$Main$viewCardFront(card),
 				_1: {ctor: '[]'}
 			}
 		});
 };
 var _user$project$Main$view = function (model) {
-	var _p2 = model;
+	var _p6 = model;
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -8437,7 +8535,7 @@ var _user$project$Main$view = function (model) {
 					_0: _elm_lang$html$Html$text('Memory Card Game (4x4) - Elm Starter Sample'),
 					_1: {ctor: '[]'}
 				}),
-			_1: A2(_elm_lang$core$List$map, _user$project$Main$viewCard, _p2._0)
+			_1: A2(_elm_lang$core$List$map, _user$project$Main$viewCard, _p6._0)
 		});
 };
 var _user$project$Main$main = _elm_lang$html$Html$program(
@@ -8445,7 +8543,7 @@ var _user$project$Main$main = _elm_lang$html$Html$program(
 		init: _user$project$Main$createModel,
 		view: _user$project$Main$view,
 		update: _user$project$Main$update,
-		subscriptions: function (_p3) {
+		subscriptions: function (_p7) {
 			return _elm_lang$core$Platform_Sub$none;
 		}
 	})();
