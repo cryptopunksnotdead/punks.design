@@ -21695,11 +21695,13 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Hello = _react2.default.createElement(
-  'h1',
-  null,
-  'Hello, world!'
-);
+var Hello = function Hello() {
+  return _react2.default.createElement(
+    'h1',
+    null,
+    'Hello, world!'
+  );
+};
 
 _reactDom2.default.render(_react2.default.createElement(Hello, null), document.getElementById('main'));
 
