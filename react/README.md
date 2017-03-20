@@ -1,4 +1,5 @@
-html • css • js6+ • react+jsx
+html • css • react+jsx • js6+ • babel • webpack
+
 
 # Memory Card Game (4x4) - React Samples
 

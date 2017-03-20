@@ -4,9 +4,11 @@
 # Memory Card Game (4x4) Showcase / Samples
 
 
-</> [**Starter Memory Sample**](http://memoryhtml.github.io/memory/starter)  #html #css #js
+</> [**Starter Memory Sample**](starter)  #html #css #js
 
-</> [**Elm Memory Sample**](http://memoryhtml.github.io/memory/elm)  #html #css #elm
+</> [**React Memory Sample**](react)  #html #css #react+jsx #js6+ #babel #webpack
+
+</> [**Elm Memory Sample**](elm)  #html #css #elm
 
 
 ## License
