@@ -1,0 +1,57 @@
+
+body {
+  font-family: "Helvetica", sans-serif;
+}
+
+ #container {
+  width: 700px;
+  margin: 0 auto;    /* center container on page */
+}
+
+.card {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  margin: 4px;
+
+  transform-style: preserve-3d;
+
+   /* animate rotate 180deg, that is, transform transitations */
+  transition: transform 1s;
+
+  /* perspective: 800px; -- use why? why not? */
+}
+
+.card-back,
+.card-front {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* note: incl. margin+border in 100% calc - default is content-box */
+  box-sizing: border-box;
+  backface-visibility: hidden;
+
+  border: 2px solid black;
+  border-radius: 10px;
+
+  padding-top: 20px;
+  text-align: center;
+  font-size: 84px;
+}
+
+.card-front {
+  transform: rotateY( 180deg );
+}
+
+.card-front .hint {
+ font-size: 20px;
+}
+
+.card-back {
+ background-image: linear-gradient(silver,grey);
+}
+
+.card.flipped {
+  transform: rotateY( 180deg );
+}
