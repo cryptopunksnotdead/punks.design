@@ -21704,18 +21704,34 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Card = function (_React$Component) {
   _inherits(Card, _React$Component);
 
-  function Card() {
+  function Card(props) {
     _classCallCheck(this, Card);
 
-    return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
+
+    _this.state = { isFlipped: false };
+    return _this;
   }
 
   _createClass(Card, [{
+    key: "handleClick",
+    value: function handleClick(ev) {
+      console.log("click, click");
+      this.setState({
+        isFlipped: !this.state.isFlipped
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         "div",
-        { className: "card" },
+        { className: "card " + (this.state.isFlipped ? 'flipped' : ''),
+          onClick: function onClick(e) {
+            return _this2.handleClick(e);
+          } },
         _react2.default.createElement(
           "div",
           { className: "card-back" },
