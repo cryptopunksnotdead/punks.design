@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 179);
+/******/ 	return __webpack_require__(__webpack_require__.s = 180);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -6853,7 +6853,7 @@ module.exports = focusNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(global) {
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -6874,19 +6874,24 @@ module.exports = focusNode;
  *
  * The activeElement will be null only if the document or document body is not
  * yet defined.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
  */
-function getActiveElement() /*?DOMElement*/{
-  if (typeof document === 'undefined') {
+function getActiveElement(doc) /*?DOMElement*/{
+  doc = doc || global.document;
+  if (typeof doc === 'undefined') {
     return null;
   }
   try {
-    return document.activeElement || document.body;
+    return doc.activeElement || doc.body;
   } catch (e) {
-    return document.body;
+    return doc.body;
   }
 }
 
 module.exports = getActiveElement;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(177)))
 
 /***/ }),
 /* 56 */
@@ -9927,10 +9932,10 @@ module.exports = getMarkupWrap;
  */
 
 function getUnboundedScrollPosition(scrollable) {
-  if (scrollable === window) {
+  if (scrollable.Window && scrollable instanceof scrollable.Window) {
     return {
-      x: window.pageXOffset || document.documentElement.scrollLeft,
-      y: window.pageYOffset || document.documentElement.scrollTop
+      x: scrollable.pageXOffset || scrollable.document.documentElement.scrollLeft,
+      y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
     };
   }
   return {
@@ -10046,7 +10051,9 @@ module.exports = hyphenateStyleName;
  * @return {boolean} Whether or not the object is a DOM node.
  */
 function isNode(object) {
-  return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
+  var doc = object ? object.ownerDocument || object : document;
+  var defaultView = doc.defaultView || window;
+  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
 }
 
 module.exports = isNode;
@@ -21677,13 +21684,42 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 177 */,
+/* 177 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 178 */,
-/* 179 */
+/* 179 */,
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(52);
 
@@ -21695,15 +21731,149 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Hello = function Hello() {
-  return _react2.default.createElement(
-    'h1',
-    null,
-    'Hello, world!'
-  );
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-_reactDom2.default.render(_react2.default.createElement(Hello, null), document.getElementById('main'));
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Card = function (_React$Component) {
+  _inherits(Card, _React$Component);
+
+  function Card(props) {
+    _classCallCheck(this, Card);
+
+    var _this = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
+
+    _this.state = { isFlipped: false };
+    return _this;
+  }
+
+  _createClass(Card, [{
+    key: 'handleClick',
+    value: function handleClick(ev) {
+      console.log("click, click");
+      this.setState({
+        isFlipped: !this.state.isFlipped
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var isA = this.props.group == 'A';
+      var isFlipped = this.state.isFlipped;
+      var frontTextA = this.frontTextA[this.props.num];
+      var frontTextB = this.frontTextB[this.props.num];
+      var backText = this.backText[this.props.group];
+
+      var cardClasses = "card" + (this.state.isFlipped ? " flipped" : "");
+
+      return _react2.default.createElement(
+        'div',
+        { className: cardClasses, onClick: function onClick(e) {
+            return _this2.handleClick(e);
+          } },
+        _react2.default.createElement(
+          'div',
+          { className: 'card-back' },
+          backText
+        ),
+        isA ? _react2.default.createElement(
+          'div',
+          { className: 'card-front' },
+          frontTextA
+        ) : _react2.default.createElement(
+          'div',
+          { className: 'card-front' },
+          _react2.default.createElement(
+            'div',
+            null,
+            frontTextB
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'hint' },
+            frontTextA
+          )
+        )
+      );
+    }
+  }, {
+    key: 'backText',
+    get: function get() {
+      return {
+        "A": "?",
+        "B": "="
+      };
+    }
+  }, {
+    key: 'frontTextA',
+    get: function get() {
+      return {
+        1: "1×1",
+        2: "2×2",
+        3: "3×3",
+        4: "4×4",
+        5: "5×5",
+        6: "6x6",
+        7: "7x7",
+        8: "8x8"
+      };
+    }
+  }, {
+    key: 'frontTextB',
+    get: function get() {
+      return {
+        1: "1",
+        2: "4",
+        3: "9",
+        4: "16",
+        5: "25",
+        6: "36",
+        7: "49",
+        8: "56"
+      };
+    }
+  }]);
+
+  return Card;
+}(_react2.default.Component);
+
+var Game = function (_React$Component2) {
+  _inherits(Game, _React$Component2);
+
+  function Game() {
+    _classCallCheck(this, Game);
+
+    return _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).apply(this, arguments));
+  }
+
+  _createClass(Game, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { id: 'container' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Hello, world!'
+        ),
+        _react2.default.createElement(Card, { num: '1', group: 'A' }),
+        _react2.default.createElement(Card, { num: '2', group: 'A' }),
+        _react2.default.createElement(Card, { num: '3', group: 'A' }),
+        _react2.default.createElement(Card, { num: '1', group: 'B' }),
+        _react2.default.createElement(Card, { num: '2', group: 'B' })
+      );
+    }
+  }]);
+
+  return Game;
+}(_react2.default.Component);
+
+_reactDom2.default.render(_react2.default.createElement(Game, null), document.getElementById('main'));
 
 /***/ })
 /******/ ]);
