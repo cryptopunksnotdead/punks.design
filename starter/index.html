@@ -29,11 +29,7 @@
      }
       
       
-      .card:hover{
-        box-shadow: 0px 0px 20px #ffcc00;
-      }
-
-      
+     
      .card-back,
      .card-front {
         display: block;
@@ -44,7 +40,6 @@
         box-sizing: border-box;
         backface-visibility: hidden;
 
-        border: 2px solid black;
         border-radius: 10px;
 
         padding-top: 20px;
@@ -53,6 +48,7 @@
      }
 
      .card-front {
+        border: 2px solid grey;
         transform: rotateY( 180deg );
      }
 
@@ -64,6 +60,20 @@
        background-image: linear-gradient(silver,grey);
       }
 
+    .card-back:hover {
+      box-shadow: 0px 0px 20px gold; 
+      cursor: pointer;
+      transition: box-shadow 0.25s;   /* move prop to .card-back - why? why not? */
+     }    
+  
+   .card-front:hover {
+      box-shadow: 0px 0px 20px aqua; 
+      cursor: pointer;
+      transition: box-shadow 0.25s;
+    }    
+  
+       
+      
      .card.flipped {
         transform: rotateY( 180deg );
      }
