@@ -2,8 +2,8 @@ html • css • elm
 
 # Memory Card Game (4x4) - Elm Samples
 
-- [Sample](http://memoryhtml.github.io/memory/elm) - memory card game sample
-- [Starter Sample](http://memoryhtml.github.io/memory/elm/starter.html) - flip cards starter sample; no pairs matched
+- [Sample](http://playhtml.github.io/memory/elm) - memory card game sample
+- [Starter Sample](http://playhtml.github.io/memory/elm/starter.html) - flip cards starter sample; no pairs matched
 
 
 
