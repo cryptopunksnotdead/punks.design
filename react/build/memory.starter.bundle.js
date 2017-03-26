@@ -6853,7 +6853,7 @@ module.exports = focusNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
+
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -6874,24 +6874,19 @@ module.exports = focusNode;
  *
  * The activeElement will be null only if the document or document body is not
  * yet defined.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
  */
-function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || global.document;
-  if (typeof doc === 'undefined') {
+function getActiveElement() /*?DOMElement*/{
+  if (typeof document === 'undefined') {
     return null;
   }
   try {
-    return doc.activeElement || doc.body;
+    return document.activeElement || document.body;
   } catch (e) {
-    return doc.body;
+    return document.body;
   }
 }
 
 module.exports = getActiveElement;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(177)))
 
 /***/ }),
 /* 56 */
@@ -9932,10 +9927,10 @@ module.exports = getMarkupWrap;
  */
 
 function getUnboundedScrollPosition(scrollable) {
-  if (scrollable.Window && scrollable instanceof scrollable.Window) {
+  if (scrollable === window) {
     return {
-      x: scrollable.pageXOffset || scrollable.document.documentElement.scrollLeft,
-      y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
+      x: window.pageXOffset || document.documentElement.scrollLeft,
+      y: window.pageYOffset || document.documentElement.scrollTop
     };
   }
   return {
@@ -10051,9 +10046,7 @@ module.exports = hyphenateStyleName;
  * @return {boolean} Whether or not the object is a DOM node.
  */
 function isNode(object) {
-  var doc = object ? object.ownerDocument || object : document;
-  var defaultView = doc.defaultView || window;
-  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
+  return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
 }
 
 module.exports = isNode;
@@ -21684,33 +21677,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 177 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
+/* 177 */,
 /* 178 */,
 /* 179 */,
 /* 180 */
@@ -21859,13 +21826,24 @@ var Game = function (_React$Component2) {
         _react2.default.createElement(
           'h1',
           null,
-          'Hello, world!'
+          'Memory Cards Game (4x4) - React Starter Sample'
         ),
         _react2.default.createElement(Card, { num: '1', group: 'A' }),
         _react2.default.createElement(Card, { num: '2', group: 'A' }),
         _react2.default.createElement(Card, { num: '3', group: 'A' }),
+        _react2.default.createElement(Card, { num: '4', group: 'A' }),
+        _react2.default.createElement(Card, { num: '5', group: 'A' }),
+        _react2.default.createElement(Card, { num: '6', group: 'A' }),
+        _react2.default.createElement(Card, { num: '7', group: 'A' }),
+        _react2.default.createElement(Card, { num: '8', group: 'A' }),
         _react2.default.createElement(Card, { num: '1', group: 'B' }),
-        _react2.default.createElement(Card, { num: '2', group: 'B' })
+        _react2.default.createElement(Card, { num: '2', group: 'B' }),
+        _react2.default.createElement(Card, { num: '3', group: 'B' }),
+        _react2.default.createElement(Card, { num: '4', group: 'B' }),
+        _react2.default.createElement(Card, { num: '5', group: 'B' }),
+        _react2.default.createElement(Card, { num: '6', group: 'B' }),
+        _react2.default.createElement(Card, { num: '7', group: 'B' }),
+        _react2.default.createElement(Card, { num: '8', group: 'B' })
       );
     }
   }]);

@@ -22,6 +22,8 @@ body {
   /* perspective: 800px; -- use why? why not? */
 }
 
+
+
 .card-back,
 .card-front {
   display: block;
@@ -32,7 +34,6 @@ body {
   box-sizing: border-box;
   backface-visibility: hidden;
 
-  border: 2px solid black;
   border-radius: 10px;
 
   padding-top: 20px;
@@ -41,6 +42,7 @@ body {
 }
 
 .card-front {
+  border: 2px solid grey;
   transform: rotateY( 180deg );
 }
 
@@ -52,6 +54,70 @@ body {
  background-image: linear-gradient(silver,grey);
 }
 
+.card-back:hover {
+box-shadow: 0px 0px 20px gold;
+cursor: pointer;
+transition: box-shadow 0.25s;   /* move prop to .card-back - why? why not? */
+}
+
+.card-front:hover {
+box-shadow: 0px 0px 20px aqua;
+cursor: pointer;
+transition: box-shadow 0.25s;
+}
+
+
 .card.flipped {
   transform: rotateY( 180deg );
 }
+
+
+
+/*******************
+   extras
+     add shake for matched
+     add matching (background) colors for matching pairs
+ *************************************************/
+
+ @keyframes shake {
+   0%   { transform: rotate(0deg); }
+   20%   { transform: rotate(5deg); }
+   40%   { transform: rotate(-5deg); }
+   60%   { transform: rotate(5deg); }
+   80%   { transform: rotate(-5deg); }
+   100% { transform: rotate(0deg); }
+ }
+
+.card.matched {
+   animation-name: shake;
+   animation-duration: .3s;
+ }
+
+
+/*
+.card-front1 {
+  background: linear-gradient( red, maroon);
+}
+.card-front2 {
+  background: linear-gradient( violet, darkviolet);
+}
+.card-front3 {
+  background: linear-gradient( yellow, orange);
+}
+.card-front4 {
+  background: linear-gradient( lime, green);
+}
+.card-front5 {
+  background: linear-gradient( orange, darkorange);
+}
+.card-front6 {
+  background: linear-gradient( aqua, darkturquoise);
+}
+.card-front7 {
+  background: linear-gradient( blue, darkblue);
+}
+.card-front8 {
+  background: linear-gradient( fuchsia, purple);
+}
+
+*/

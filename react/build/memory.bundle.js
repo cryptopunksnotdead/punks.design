@@ -6853,7 +6853,7 @@ module.exports = focusNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
+
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -6874,24 +6874,19 @@ module.exports = focusNode;
  *
  * The activeElement will be null only if the document or document body is not
  * yet defined.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
  */
-function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || global.document;
-  if (typeof doc === 'undefined') {
+function getActiveElement() /*?DOMElement*/{
+  if (typeof document === 'undefined') {
     return null;
   }
   try {
-    return doc.activeElement || doc.body;
+    return document.activeElement || document.body;
   } catch (e) {
-    return doc.body;
+    return document.body;
   }
 }
 
 module.exports = getActiveElement;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(177)))
 
 /***/ }),
 /* 56 */
@@ -9932,10 +9927,10 @@ module.exports = getMarkupWrap;
  */
 
 function getUnboundedScrollPosition(scrollable) {
-  if (scrollable.Window && scrollable instanceof scrollable.Window) {
+  if (scrollable === window) {
     return {
-      x: scrollable.pageXOffset || scrollable.document.documentElement.scrollLeft,
-      y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
+      x: window.pageXOffset || document.documentElement.scrollLeft,
+      y: window.pageYOffset || document.documentElement.scrollTop
     };
   }
   return {
@@ -10051,9 +10046,7 @@ module.exports = hyphenateStyleName;
  * @return {boolean} Whether or not the object is a DOM node.
  */
 function isNode(object) {
-  var doc = object ? object.ownerDocument || object : document;
-  var defaultView = doc.defaultView || window;
-  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
+  return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
 }
 
 module.exports = isNode;
@@ -21685,30 +21678,180 @@ module.exports = traverseAllChildren;
 
 /***/ }),
 /* 177 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var g;
+"use strict";
 
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
 
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-module.exports = g;
+var _react = __webpack_require__(52);
 
+var _react2 = _interopRequireDefault(_react);
+
+var _Card = __webpack_require__(178);
+
+var _Card2 = _interopRequireDefault(_Card);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Game = function (_React$Component) {
+  _inherits(Game, _React$Component);
+
+  function Game(props) {
+    _classCallCheck(this, Game);
+
+    // unshuffled card keys (that is, num+group e.g. 1A, 2A, 1B, etc.)
+    var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
+
+    _this.cardKeys = [[1, 'A'], [2, 'A'], [3, 'A'], [4, 'A'], [5, 'A'], [6, 'A'], [7, 'A'], [8, 'A'], [1, 'B'], [2, 'B'], [3, 'B'], [4, 'B'], [5, 'B'], [6, 'B'], [7, 'B'], [8, 'B']];
+
+    var cardStates = _this.cardKeys.map(function (key) {
+      return {
+        num: key[0],
+        group: key[1],
+        flipped: false,
+        matched: false //   use matched for animation (e.g. shake cards 0.5 secs or something)
+      };
+    });
+
+    _this.state = {
+      cardStates: cardStates,
+      selectedIdx: -1, // first (last) selected card state
+      rounds: 0,
+      matches: 0,
+      misses: 0, // same as =>  pairs - matches
+      pairs: cardStates.length / 2,
+      locked: false, // while locked do NOT allow any clicks
+      gameOver: false // same as =>  matches == pairs
+    };
+    return _this;
+  }
+
+  _createClass(Game, [{
+    key: 'onClickCard',
+    value: function onClickCard(idx) {
+      var _this2 = this;
+
+      console.log("onClickCard idx:" + idx);
+
+      if (this.state.locked) // board locked
+        return;
+
+      var cardStates = this.state.cardStates,
+          cardState = cardStates[idx],
+          // current clicked card
+      selectedIdx = this.state.selectedIdx,
+          // last/prev clicked card
+      selected = selectedIdx == -1 ? null : cardStates[selectedIdx];
+
+      console.log("cardState:");
+      console.log(cardState);
+      console.log("selected cardState:");
+      console.log(selected);
+
+      if (selectedIdx === idx || cardState.matched === true) return;
+
+      // todo: make a deep clone copy of cardStates - why? why not??
+
+      cardState.flipped = !cardState.flipped;
+      this.setState({ cardStates: this.state.cardStates });
+
+      if (selected) {
+        // second selection; check for matching pairs
+
+        if (selected.num == cardState.num) {
+          // bingo! a matching card pair
+          selected.matched = true;
+          cardState.matched = true;
+
+          this.setState({ cardStates: this.state.cardStates,
+            selectedIdx: -1,
+            matches: this.state.matches + 1,
+            rounds: this.state.rounds + 1 });
+        } else {
+          this.setState({ locked: true }); // do NOT allow more clicks while waiting for auto-unflip
+
+          setTimeout(function () {
+            selected.flipped = false;
+            cardState.flipped = false;
+
+            _this2.setState({ cardStates: _this2.state.cardStates,
+              selectedIdx: -1,
+              misses: _this2.state.misses + 1,
+              rounds: _this2.state.rounds + 1,
+              locked: false
+            });
+          }, 1000); // auto-unflipp; wait 1 sec
+        }
+      } else {
+        // first selection
+        this.setState({ selectedIdx: idx });
+      }
+    } // method onClickCard()
+
+
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      var _state = this.state,
+          cardStates = _state.cardStates,
+          rounds = _state.rounds,
+          pairs = _state.pairs,
+          misses = _state.misses,
+          matches = _state.matches;
+
+
+      return _react2.default.createElement(
+        'div',
+        { id: 'container' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Memory Cards Game (4x4) - React Sample'
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          'Stats - Rounds: ',
+          rounds,
+          ', Matches: ',
+          matches,
+          '/',
+          pairs,
+          ', Misses: ',
+          misses
+        ),
+        cardStates.map(function (card, idx) {
+          return _react2.default.createElement(_Card2.default, { num: card.num, group: card.group,
+            flipped: card.flipped,
+            matched: card.matched,
+            onClick: function onClick() {
+              return _this3.onClickCard(idx);
+            } });
+        })
+      );
+    } // method render()
+
+  }]);
+
+  return Game;
+}(_react2.default.Component); // class Game
+
+
+exports.default = Game;
 
 /***/ }),
 /* 178 */
@@ -21744,42 +21887,88 @@ var Card = function (_React$Component) {
   function Card(props) {
     _classCallCheck(this, Card);
 
-    var _this = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
-
-    _this.state = { isFlipped: false };
-    return _this;
+    return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
   }
 
   _createClass(Card, [{
-    key: "handleClick",
-    value: function handleClick(ev) {
-      console.log("click, click");
-      this.setState({
-        isFlipped: !this.state.isFlipped
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+
+      var isA = this.props.group == 'A';
+      var isFlipped = this.props.flipped;
+      var isMatched = this.props.matched;
+
+      var frontTextA = this.frontTextA[this.props.num];
+      var frontTextB = this.frontTextB[this.props.num];
+      var backText = this.backText[this.props.group];
+
+      var cardClasses = "card" + (isFlipped ? " flipped" : "") + (isMatched ? " matched" : "");
+
+      var cardFrontClasses = "card-front card-front" + this.props.num; // add card-front1, card-front2, etc colors or something
 
       return _react2.default.createElement(
         "div",
-        { className: "card " + (this.state.isFlipped ? 'flipped' : ''),
-          onClick: function onClick(e) {
-            return _this2.handleClick(e);
-          } },
+        { className: cardClasses, onClick: this.props.onClick },
         _react2.default.createElement(
           "div",
           { className: "card-back" },
-          "?"
+          backText
         ),
-        _react2.default.createElement(
+        isA ? _react2.default.createElement(
           "div",
-          { className: "card-front" },
-          "1\xD71"
+          { className: cardFrontClasses },
+          frontTextA
+        ) : _react2.default.createElement(
+          "div",
+          { className: cardFrontClasses },
+          _react2.default.createElement(
+            "div",
+            null,
+            frontTextB
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "hint" },
+            frontTextA
+          )
         )
       );
+    }
+  }, {
+    key: "backText",
+    get: function get() {
+      return {
+        "A": "?",
+        "B": "="
+      };
+    }
+  }, {
+    key: "frontTextA",
+    get: function get() {
+      return {
+        1: "1×1",
+        2: "2×2",
+        3: "3×3",
+        4: "4×4",
+        5: "5×5",
+        6: "6x6",
+        7: "7x7",
+        8: "8x8"
+      };
+    }
+  }, {
+    key: "frontTextB",
+    get: function get() {
+      return {
+        1: "1",
+        2: "4",
+        3: "9",
+        4: "16",
+        5: "25",
+        6: "36",
+        7: "49",
+        8: "56"
+      };
     }
   }]);
 
@@ -21803,24 +21992,13 @@ var _reactDom = __webpack_require__(80);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _Card = __webpack_require__(178);
+var _Game = __webpack_require__(177);
 
-var _Card2 = _interopRequireDefault(_Card);
+var _Game2 = _interopRequireDefault(_Game);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(
-  'div',
-  { id: 'container' },
-  _react2.default.createElement(
-    'h1',
-    null,
-    'Hello, world!'
-  ),
-  _react2.default.createElement(_Card2.default, null),
-  _react2.default.createElement(_Card2.default, null),
-  _react2.default.createElement(_Card2.default, null)
-), document.getElementById('main'));
+_reactDom2.default.render(_react2.default.createElement(_Game2.default, null), document.getElementById('main'));
 
 /***/ })
 /******/ ]);

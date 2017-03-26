@@ -76,12 +76,23 @@ class Game extends React.Component {
    render() {
      return(
 <div id="container">
-  <h1>Hello, world!</h1>
+  <h1>Memory Cards Game (4x4) - React Starter Sample</h1>
   <Card num="1" group="A" />
   <Card num="2" group="A" />
   <Card num="3" group="A" />
+  <Card num="4" group="A" />
+  <Card num="5" group="A" />
+  <Card num="6" group="A" />
+  <Card num="7" group="A" />
+  <Card num="8" group="A" />
   <Card num="1" group="B" />
   <Card num="2" group="B" />
+  <Card num="3" group="B" />
+  <Card num="4" group="B" />
+  <Card num="5" group="B" />
+  <Card num="6" group="B" />
+  <Card num="7" group="B" />
+  <Card num="8" group="B" />
 </div>
      );
    }
