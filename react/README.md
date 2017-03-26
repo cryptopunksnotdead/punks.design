@@ -3,8 +3,8 @@ html • css • react+jsx • js6+ • babel • webpack
 
 # Memory Card Game (4x4) - React Samples
 
-- [Sample](http://memoryhtml.github.io/memory/react)
-- [Starter Sample](http://memoryhtml.github.io/memory/react/starter.html)
+- [Sample](http://playhtml.github.io/memory/react)
+- [Starter Sample](http://playhtml.github.io/memory/react/starter.html)
 
 
 ## Notes
