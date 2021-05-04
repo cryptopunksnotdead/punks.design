@@ -1,5 +1,0 @@
-###
-# ignore elm generated files
-
-elm-stuff/
-elm-package.json
