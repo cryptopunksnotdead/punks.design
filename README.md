@@ -10,15 +10,21 @@ Crypto Collectibles Series -
 ## Original CryptoPunks Series (24×24)
 
 
-All five basic designs in original pixel size -
-humans (male / female), alien, zombie, ape.
+All  basic designs in original pixel size -
+humans (male / female), alien (male), ...
+<!-- zombie, ape -->
 
 
 For more see [**original »**](original)
 
 
+## 1000 More CryptPunks Series (24x24)
+
+More basic designs in original pixel size -
+alien (female),  ...
 
 
+For more see [**more »**](more)
 
 
 

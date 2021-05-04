@@ -1,5 +1,5 @@
 ###
-# male human  - basic - zero attributes
+# human (male) - basic - zero attributes
 #
 #  colors:
 #   0 - transparent
