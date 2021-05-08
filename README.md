@@ -47,13 +47,19 @@ For more see [**original »**](original)
 ## 1000 More CryptPunks Series (24x24)
 
 More basic designs in original pixel size -
-alien (female),  ...
+alien (female), demon (female), skeleton (male) ...
 
 ![](i/more_alien-female.png)
 ![](i/more_alien-femalex4.png)
 
+![](i/more_demon-female.png)
+![](i/more_demon-femalex4.png)
+
+![](i/more_skeleton-male.png)
+![](i/more_skeleton-malex4.png)
 
 For more see [**more »**](more)
+
 
 
 
