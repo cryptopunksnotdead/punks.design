@@ -24,6 +24,16 @@ humans (male / female), alien (male), ...
 ![](i/original_human-male_darkerx4.png)
 
 
+![](i/original_human-female_lighter.png)
+![](i/original_human-female_light.png)
+![](i/original_human-female_dark.png)
+![](i/original_human-female_darker.png)
+![](i/original_human-female_lighterx4.png)
+![](i/original_human-female_lightx4.png)
+![](i/original_human-female_darkx4.png)
+![](i/original_human-female_darkerx4.png)
+
+
 ![](i/original_alien-male.png)
 ![](i/original_alien-malex4.png)
 
