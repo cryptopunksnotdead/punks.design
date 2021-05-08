@@ -14,6 +14,19 @@ All  basic designs in original pixel size -
 humans (male / female), alien (male), ...
 <!-- zombie, ape -->
 
+![](i/original_human-male_lighter.png)
+![](i/original_human-male_light.png)
+![](i/original_human-male_dark.png)
+![](i/original_human-male_darker.png)
+![](i/original_human-male_lighterx4.png)
+![](i/original_human-male_lightx4.png)
+![](i/original_human-male_darkx4.png)
+![](i/original_human-male_darkerx4.png)
+
+
+![](i/original_alien-male.png)
+![](i/original_alien-malex4.png)
+
 
 For more see [**original »**](original)
 
@@ -22,6 +35,9 @@ For more see [**original »**](original)
 
 More basic designs in original pixel size -
 alien (female),  ...
+
+![](i/more_alien-female.png)
+![](i/more_alien-femalex4.png)
 
 
 For more see [**more »**](more)
