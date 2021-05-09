@@ -48,8 +48,10 @@ For more see [**original »**](original)
 
 More basic designs in original pixel size -
 zombie (female), ape (female), alien (female),
-demon (male / female), orc (male / female),
-skeleton (male / female), ...
+demon (male / female), vampire (male / female),
+orc (male / female),
+skeleton (male / female), mummy (male / female),
+robot (male / female) ...
 
 
 ![](i/more_zombie-female.png)
@@ -66,6 +68,12 @@ skeleton (male / female), ...
 ![](i/more_demon-malex4.png)
 ![](i/more_demon-femalex4.png)
 
+![](i/more_vampire-male.png)
+![](i/more_vampire-female.png)
+![](i/more_vampire-malex4.png)
+![](i/more_vampire-femalex4.png)
+
+
 ![](i/more_orc-male.png)
 ![](i/more_orc-female.png)
 ![](i/more_orc-malex4.png)
@@ -75,6 +83,17 @@ skeleton (male / female), ...
 ![](i/more_skeleton-female.png)
 ![](i/more_skeleton-malex4.png)
 ![](i/more_skeleton-femalex4.png)
+
+![](i/more_mummy-male.png)
+![](i/more_mummy-female.png)
+![](i/more_mummy-malex4.png)
+![](i/more_mummy-femalex4.png)
+
+![](i/more_robot-male.png)
+![](i/more_robot-female.png)
+![](i/more_robot-malex4.png)
+![](i/more_robot-femalex4.png)
+
 
 For more see [**more »**](more)
 
