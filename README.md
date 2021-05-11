@@ -100,6 +100,19 @@ For more see [**more »**](more)
 
 
 
+## 8-Bit Icon Series (20x20)
+
+All two basic human (male / female) designs in original pixel size.
+
+
+
+For more see [**8bit »**](8bit)
+
+
+
+
+
+
 ## Tools
 
 ###  Do-It-Yourself (DIY) Corner - Yes, You Can! - Draw Your Own Free 24x24 Avatars That You Own 100% Forever
