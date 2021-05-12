@@ -104,6 +104,26 @@ For more see [**more »**](more)
 
 All two basic human (male / female) designs in original pixel size.
 
+![](i/8bit_male_lighter.png)
+![](i/8bit_male_light.png)
+![](i/8bit_male_dark.png)
+![](i/8bit_male_darker.png)
+![](i/8bit_male_lighterx4.png)
+![](i/8bit_male_lightx4.png)
+![](i/8bit_male_darkx4.png)
+![](i/8bit_male_darkerx4.png)
+
+
+![](i/8bit_female_lighter.png)
+![](i/8bit_female_light.png)
+![](i/8bit_female_dark.png)
+![](i/8bit_female_darker.png)
+![](i/8bit_female_lighterx4.png)
+![](i/8bit_female_lightx4.png)
+![](i/8bit_female_darkx4.png)
+![](i/8bit_female_darkerx4.png)
+
+
 
 
 For more see [**8bit »**](8bit)
