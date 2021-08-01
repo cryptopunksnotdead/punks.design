@@ -99,6 +99,37 @@ For more see [**more »**](more)
 
 
 
+## Normie Series (24x24)
+
+Left-Facing? Right-Facing? Normie designs use
+the golden middle way in original pixel size
+
+![](i/normie_human-male_lighter.png)
+![](i/normie_human-male_light.png)
+![](i/normie_human-male_dark.png)
+![](i/normie_human-male_darker.png)
+![](i/normie_human-male_lighterx4.png)
+![](i/normie_human-male_lightx4.png)
+![](i/normie_human-male_darkx4.png)
+![](i/normie_human-male_darkerx4.png)
+
+![](i/normie_zombie-male.png)
+![](i/normie_zombie-malex4.png)
+
+![](i/normie_ape-male.png)
+![](i/normie_ape-malex4.png)
+
+![](i/normie_alien-male.png)
+![](i/normie_alien-malex4.png)
+
+![](i/normie_demon-male.png)
+![](i/normie_demon-malex4.png)
+
+![](i/normie_skeleton-male.png)
+![](i/normie_skeleton-malex4.png)
+
+
+
 
 ## 8-Bit Icon Series (20x20)
 
