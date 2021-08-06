@@ -104,29 +104,29 @@ For more see [**more »**](more)
 Left-Facing? Right-Facing? Normie designs use
 the golden middle way in original pixel size
 
-![](i/normie_human-male_lighter.png)
-![](i/normie_human-male_light.png)
-![](i/normie_human-male_dark.png)
-![](i/normie_human-male_darker.png)
-![](i/normie_human-male_lighterx4.png)
-![](i/normie_human-male_lightx4.png)
-![](i/normie_human-male_darkx4.png)
-![](i/normie_human-male_darkerx4.png)
+![](i/normie_human_lighter.png)
+![](i/normie_human_light.png)
+![](i/normie_human_dark.png)
+![](i/normie_human_darker.png)
+![](i/normie_human_lighterx4.png)
+![](i/normie_human_lightx4.png)
+![](i/normie_human_darkx4.png)
+![](i/normie_human_darkerx4.png)
 
-![](i/normie_zombie-male.png)
-![](i/normie_zombie-malex4.png)
+![](i/normie_zombie.png)
+![](i/normie_zombiex4.png)
 
-![](i/normie_ape-male.png)
-![](i/normie_ape-malex4.png)
+![](i/normie_ape.png)
+![](i/normie_apex4.png)
 
-![](i/normie_alien-male.png)
-![](i/normie_alien-malex4.png)
+![](i/normie_alien.png)
+![](i/normie_alienx4.png)
 
-![](i/normie_demon-male.png)
-![](i/normie_demon-malex4.png)
+![](i/normie_demon.png)
+![](i/normie_demonx4.png)
 
-![](i/normie_skeleton-male.png)
-![](i/normie_skeleton-malex4.png)
+![](i/normie_skeleton.png)
+![](i/normie_skeletonx4.png)
 
 
 
